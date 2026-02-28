@@ -16,5 +16,4 @@ defmodule BlueBankWeb.UsersJSON do
       cep: user.cep
     }
   end
-
 end
