@@ -34,6 +34,8 @@ config :argon2_elixir,
   t_cost: 4,
   m_cost: 16
 
+config :tesla, disable_deprecated_builder_warning: true
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
