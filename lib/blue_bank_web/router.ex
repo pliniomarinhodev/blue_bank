@@ -8,7 +8,6 @@ defmodule BlueBankWeb.Router do
   scope "/api", BlueBankWeb do
     pipe_through :api
 
-
     get "/", WelcomeController, :index
     resources "/users", UsersController, only: [:create, :update, :delete, :show]
   end

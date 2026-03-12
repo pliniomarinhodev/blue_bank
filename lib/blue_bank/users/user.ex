@@ -44,7 +44,6 @@ defmodule BlueBank.Users.User do
   defp add_password_hash(%Changeset{valid?: true, changes: %{password: password}} = changeset) do
     put_change(changeset, :password_hash, Argon2.hash_pwd_salt(password))
   end
+
   defp add_password_hash(changeset), do: changeset
-
-
 end

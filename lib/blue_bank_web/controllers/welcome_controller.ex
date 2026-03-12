@@ -5,6 +5,5 @@ defmodule BlueBankWeb.WelcomeController do
     conn
     |> put_status(:ok)
     |> json(%{message: "Bem vindo ao BlueBank!"})
-
   end
 end

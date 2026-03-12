@@ -1,5 +1,4 @@
 defmodule BlueBank.Users do
-
   alias BlueBank.Users.Create
   alias BlueBank.Users.Delete
   alias BlueBank.Users.Get
