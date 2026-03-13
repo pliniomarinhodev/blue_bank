@@ -52,7 +52,8 @@ defmodule BlueBank.MixProject do
       {:argon2_elixir, "~> 4.0"},
       {:tesla, "~> 1.16"},
       {:bypass, "~> 2.1", only: :test},
-      {:mox, "~> 1.2", only: :test}
+      {:mox, "~> 1.2", only: :test},
+      {:decimal, "~> 2.0"}
     ]
   end
 
