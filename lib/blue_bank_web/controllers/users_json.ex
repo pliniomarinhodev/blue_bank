@@ -1,6 +1,7 @@
 defmodule BlueBankWeb.UsersJSON do
   alias BlueBank.Users.User
 
+  def login(%{token: token, user: user}), do: %{message: "User logado com sucesso!", data: data(user), Bearer: token}
   def create(%{user: user}), do: %{message: "User criado com sucesso!", data: data(user)}
   def delete(%{user: user}), do: %{message: "User deletado com sucesso!", data: data(user)}
   def get(%{user: user}), do: %{data: user}

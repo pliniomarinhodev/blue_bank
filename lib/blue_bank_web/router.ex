@@ -5,11 +5,24 @@ defmodule BlueBankWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug BlueBankWeb.Plugs.Auth
+  end
+
   scope "/api", BlueBankWeb do
     pipe_through :api
 
     get "/", WelcomeController, :index
-    resources "/users", UsersController, only: [:create, :update, :delete, :show]
+
+    resources "/users", UsersController, only: [:create]
+    post "/users/login", UsersController, :login
+  end
+
+  scope "/api", BlueBankWeb do
+    pipe_through [:api, :auth]
+
+    resources "/users", UsersController, only: [:update, :delete, :show]
+
     post "/accounts", AccountsController, :create
     post "/accounts/transaction", AccountsController, :transaction
   end

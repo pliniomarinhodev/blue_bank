@@ -2,7 +2,8 @@ defmodule BlueBankWeb.UsersController do
   use BlueBankWeb, :controller
 
   alias BlueBank.Users
-  alias BlueBank.Users.User
+  alias Users.User
+  alias BlueBankWeb.Token
 
   action_fallback BlueBankWeb.FallbackController
 
@@ -19,6 +20,16 @@ defmodule BlueBankWeb.UsersController do
       conn
       |> put_status(:ok)
       |> render(:delete, user: user)
+    end
+  end
+
+  def login(conn, params) do
+    with {:ok, %User{} = user} <- Users.login(params) do
+      token = Token.sign(user)
+
+      conn
+      |> put_status(:ok)
+      |> render(:login, user: user, token: token)
     end
   end
 
